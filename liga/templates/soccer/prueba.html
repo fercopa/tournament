@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{{ form.as_p }}
+<p>
+</p>
+<script charset="utf-8">
+    document.getElementById("id_text").style.display = "none";
+    var ls = [];
+    {% for team in teams %} 
+    ls.push('{{ team.name }}'); 
+    {% endfor %}
+</script>
+<button onclick="robin_round(ls)">Generar</button>
+{% endblock %}
+{% block javascript_files %}
+<h1>Mapa</h1>
+<div id='map'> </div>
+<div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13625.201061551734!2d-64.26754023067836!3d-31.378283201207832!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzHCsDIyJzQxLjgiUyA2NMKwMTUnMzEuNiJX!5e0!3m2!1ses!2sar!4v1521593489586" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA4es6K4SbX2ZlX5pF-HdxmhYAyuurlU9A&callback=initMap" async defer></script> 
+{% endblock %}

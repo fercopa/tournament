@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<ul>
+    {% for match in matchs %}
+    <li>{{ match.local }} vs. {{ match.visitor }}
+        <a href="{{ match.get_absolute_url }}">Editar</a></li>
+        {% if match.soccerfield %}
+          <a href="{{ match.soccerfield.get_url_map }}" target="_blank">{{ match.soccerfield }}</a>
+        {% endif %}
+    {% empty %}
+    <h2>No existe un fixture para esta zona aún</h2>
+    <a class="btn btn-success" href="{{ zone.get_absolute_url }}fixture/nuevo/">Crear Fixture</a>
+    {% endfor %}
+</ul>
+{% endblock %}

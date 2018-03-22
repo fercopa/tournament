@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object }}</h1>
+<p class="h2">{{ object.tournament }}</p>
+<p class="h4">{{ object.name }}</p>
+<p>
+<ul>
+    {% for team in teams %}
+    <li> {{ team }}</li>
+    {% endfor %}
+</ul>
+</p>
+<p>
+
+<a class="btn btn-primary" href="{{ object.get_absolute_url }}fixture/">Ver Fixture</a>
+{% comment %}
+<a class="btn btn-secondary" href="{% url 'zone-list' %}">Lista de zonas</a>
+{% endcomment %}
+</p>
+{% endblock %}

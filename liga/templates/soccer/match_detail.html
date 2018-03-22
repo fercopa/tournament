@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object }}</h1>
+<p class="h2">{{ object.zone }}</p>
+<p class="h4">{{ object.soccerField }}</p>
+<p class="h4">{{ object.local }}</p>
+<p class="h4">{{ object.visitor }}</p>
+<p class="h4">{{ object.date }}</p>
+<p>
+<a class="btn btn-secondary" href="{% url 'match-list' %}">Lista de partidos</a>
+</p>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Nuevo Equipo{% endblock %}
+
+{% block content %}
+<p>
+    <h1>Nuevo Equipo</h1>
+</p>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Aceptar</button>
+        <a class="btn btn-danger" href="{% url 'team-list' %}">Cancelar</a>
+    </form>
+{% endblock %}

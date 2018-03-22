@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}Jugadores{% endblock %}
+{% block content %}
+<h1>Jugadores</h1>
+<p>
+  <a class="btn btn-success" href="{% url 'player-create' %}">Nuevo Jugador</a>
+</p>
+<div class="list-group">
+    {% for item in object_list %}
+    <div class="row">
+        <div class="col-6">
+            <a href="{{ item.get_absolute_url }}" class="list-group-item list-group-item-action">{{ item }}</a>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-primary" href="{% url 'player-update' item.pk %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'player-delete' item.pk %}">Eliminar</a>
+        </div>
+    </div>
+    {% empty %}
+    <h3>No hay jugadores aún. </h3>
+    {% endfor %}
+</div>
+{% endblock %}

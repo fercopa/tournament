@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{{ element.title }}
+{% endblock %}
+
+{% block content %}
+<p>
+    <h1>{{ element.title }}</h1>
+</p>
+    <form class="form-group uniForm blueForm" action="" method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button class="btn btn-primary" type="submit">Aceptar</button>
+        <a class="btn btn-danger" href="{% url element.cancel_url %}">Cancelar</a>
+    </form>
+{% endblock %}

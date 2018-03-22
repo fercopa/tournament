@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Editar noticia{% endblock %}
+{% block content %}
+<p>
+  <h1>Editar noticia</h1>
+</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>
+        {{ form.as_p }}
+    </p>
+    <button type="submit" class="btn btn-primary"> Actualizar </button>
+    <a class="btn btn-secondary" href="{% url 'news-list' %}">Cancelar</a>
+</form>
+{% endblock %}

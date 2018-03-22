@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object }}</h1>
+<p> <a class='btn btn-primary' href="{% url 'tournament-create' object.id %}">Nuevo Torneo</a></p>
+<p>
+<ul>
+{% for tournament in tournaments %}
+<li> <a href="{{ tournament.get_absolute_url }}">Torneo {{ tournament }}</a></li>
+{% endfor %}
+</ul>
+</p>
+<p>
+{# <a class="btn btn-secondary" href="{% url 'category-list' %}">Volver</a> #}
+</p>
+{% endblock %}

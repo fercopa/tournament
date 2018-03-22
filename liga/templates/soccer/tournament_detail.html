@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle del torneo {% endblock %}
+{% block content %}
+<h1>Torneo del {{ object }}</h1>
+<p>{{ object.category }}
+  <a href="{% url 'tournament-update' category=object.category.pk pk=object.pk %}">Editar</a>&nbsp;&nbsp;
+  <a href="{% url 'tournament-delete' category=object.category.pk pk=object.pk %}" style="color: red">Eliminar</a>
+</p>
+<p>
+  <a class="btn btn-primary" href="{% url 'zone-create' object.category.pk object.pk %}">Nueva zona</a>
+</p>
+<p>
+    <ul>
+      {% for zone in zones %}
+        <li><a href="{{ zone.get_absolute_url }}">{{ zone }}</a></li>
+      {% empty %}
+        <h3>No existe zonas aún.</h3>
+      {% endfor %}
+    </ul>
+</p>
+{% endblock %}

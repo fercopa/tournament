@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+Editar {{ element.title }}
+{% endblock %}
+{% block content %}
+<p>
+<h1>Editar {{ element.title }}</h1>
+</p>
+<form action="" method="post" class="uniForm">
+    {% csrf_token %}
+    <p>
+        {{ form|crispy }}
+    </p>
+    {% buttons %}
+    <button type="submit" class="btn btn-primary"> Actualizar </button>
+    <a class="btn btn-secondary" href="{% url element.cancel_url %}">Cancelar</a>
+    {% endbuttons %}
+</form>
+{% endblock %}

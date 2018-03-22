@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Nuevo Jugador{% endblock %}
+{% block content %}
+<p>
+    <h1>Nuevo Jugador</h1>
+</p>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-primary" type="submit">Aceptar</button>
+        <a class="btn btn-danger" href="{% url 'player-list' %}">Cancelar</a>
+    </form>
+{% endblock %}

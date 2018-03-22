@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block title %}
+{{ element.title }}
+{% endblock %}
+{% block content %}
+<h1>{{ element.title }}</h1>
+<p>
+<a class="btn btn-success" href={{ element.create_url }}>{{ element.text_create }}</a>
+</p>
+<div class="list-group">
+    {% for item in object_list %}
+    <div class="row">
+        <div class="col-6">
+            <a href="{{ item.get_absolute_url }}" class="list-group-item list-group-item-action">{{ item }}</a>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-primary" href="{% url element.edit item.pk %}">Editar</a>
+            <a class="btn btn-danger" href="{% url element.delete item.pk %}">Eliminar</a>
+        </div>
+    </div>
+    {% empty %}
+    <h3>No hay {{ element.title }} aún. </h3>
+    {% endfor %}
+</div>
+{% endblock %}

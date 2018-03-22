@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Editar partido{% endblock %}
+{% block content %}
+<p>
+  <h1>Editar Partido</h1>
+</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>
+        {{ form.as_p }}
+    </p>
+    <button type="submit" class="btn btn-primary"> Actualizar </button>
+    <a class="btn btn-secondary" href="{{ zone.get_absolute_url }}fixture/">Cancelar</a>
+</form>
+{% endblock %}
+{% block javascript_files %}
+  <script src="{% static '/js/jquery.simple-dtpicker.js' %}" charset="utf-8"> </script>
+  <script charset="utf-8">
+    $(function(){
+      $('*[name=date]').appendDtpicker({
+        'closeOnSelected': true,
+        'dateFormat': 'DD/MM/YYYY h:m',
+        'locale': 'es',
+        'autodateOnStart': false
+      });
+    });
+  </script>
+{% endblock %}

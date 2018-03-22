@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Eliminar Torneo{% endblock %}
+{% block content %}
+<p>
+  <h1 class='alert alert-warning' role='alert'>Atención</h1>
+</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <h2> Esta seguro de eliminar "{{ object }}"?</h2>
+    <button class="btn btn-danger" type="submit">Confirmar</button>
+    <a class="btn btn-secondary" href="{% url 'category-detail' pk=object.category.pk %}">Cancelar</a>
+</form>
+{% endblock %}

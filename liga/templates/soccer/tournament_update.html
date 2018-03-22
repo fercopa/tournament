@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Editar torneo{% endblock %}
+{% block content %}
+<p>
+  <h1>Editar torneo</h1>
+</p>
+<form action="" method="post">
+    {% csrf_token %}
+    <p>
+        {{ form.as_p }}
+    </p>
+    <button type="submit" class="btn btn-primary"> Actualizar </button>
+    <a class="btn btn-secondary" href="{{ tournament.get_absolute_url }}">Cancelar</a>
+</form>
+{% endblock %}
+{% block javascript_files %}
+<script src="{% static '/js/jquery.simple-dtpicker.js' %}" charset="utf-8"> </script>
+<script charset="utf-8">
+    $(function(){
+        $('*[name=datefield]').appendDtpicker({
+            'closeOnSelected': true,
+            'dateFormat': 'DD/MM/YYYY',
+            'locale': 'es',
+            'autodateOnStart': false,
+            'dateOnly': true
+          });
+        });
+    </script>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{ object }}</h1>
+<p class="h2">{{ object.team }}</p>
+<p class="h2">{{ object.name }}</p>
+<p class="h2">{{ object.dni }}</p>
+<p class="h2">{{ object.carnet }}</p>
+<p>
+  <img src="{{ object.photo.url }}" alt="{{ object.photo }}"></p>
+<p>
+<a class="btn btn-secondary" href="{% url 'player-list' %}">Lista de jugadores</a>
+</p>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Nueva zona{% endblock %}
+{% block content %}
+<p><h2>Nueva zona</h2></p>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class='btn btn-primary' type="submit" value="Aceptar" />
+    <a class='btn btn-secondary' href="{{ tournament.get_absolute_url }}">Cancelar</a>
+</form>
+{% endblock %}
+
+{% block javascript_files %}
+    <script>
+        // run pre selected options
+        $('#my-select').multiSelect();
+    </script>
+{% endblock %}

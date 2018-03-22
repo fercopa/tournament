@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta charset='utf-8' />
+        <link href="{% static '/css/multi-select.css' %}" media="screen" rel="stylesheet" type="text/css">
+        <link href="{% static '/css/mapa.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static '/css/jquery.simple-dtpicker.css' %}" media="screen" rel="stylesheet" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+        <script src="{% static '/js/app.js' %}"> </script>
+        <script src="{% static '/js/mapa.js' %}"> </script>
+        <script src="{% static '/js/jquery.multi-select.js' %}"> </script>
+        <title> {% block title %} {% endblock %} </title>
+        {% load bootstrap4 %}
+        {% bootstrap_css %}
+        {% bootstrap_javascript %}
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <div class="row">
+                    <div class="col">
+                        {% include 'navbar.html' %}
+                    </div>
+                </div>
+                {% bootstrap_messages %}
+                {% block header %}
+                {% endblock %}
+            </header>
+            <div class="row">
+                <div class="col">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        {% block javascript_files %}
+        {% endblock %}
+    </body>
+</html>
